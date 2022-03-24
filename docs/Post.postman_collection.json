@@ -1,0 +1,602 @@
+{
+	"info": {
+		"_postman_id": "90586e62-5a9c-4dc1-a36f-7cd295ab7276",
+		"name": "Post",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/posts",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Posts",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/posts",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Mar 2022 11:08:28 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "481"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-03-23T10:39:35.801939Z\",\n        \"UpdatedAt\": \"2022-03-23T10:39:35.801939Z\",\n        \"DeletedAt\": null,\n        \"title\": \"title\",\n        \"detail\": \"detail\",\n        \"comments\": null\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-03-23T10:51:26.938894Z\",\n        \"UpdatedAt\": \"2022-03-23T10:51:26.938894Z\",\n        \"DeletedAt\": null,\n        \"title\": \"title\",\n        \"detail\": \"detail\",\n        \"comments\": null\n    },\n    {\n        \"ID\": 3,\n        \"CreatedAt\": \"2022-03-23T10:52:49.552169Z\",\n        \"UpdatedAt\": \"2022-03-23T10:52:49.552169Z\",\n        \"DeletedAt\": null,\n        \"title\": \"title\",\n        \"detail\": \"detail\",\n        \"comments\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Create Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post is created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"{{title}}\",\n    \"detail\": \"{{detail}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/posts",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"{{title}}\",\n    \"detail\": \"{{detail}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/posts",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Mar 2022 11:14:44 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "165"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ID\": 8,\n    \"CreatedAt\": \"2022-03-23T11:14:44.927444919Z\",\n    \"UpdatedAt\": \"2022-03-23T11:14:44.927444919Z\",\n    \"DeletedAt\": null,\n    \"title\": \"title\",\n    \"detail\": \"detail\",\n    \"comments\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Find Post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/posts/{{post_id}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Find Post",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/posts/{{post_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"ID\": 1,\n    \"CreatedAt\": \"2022-03-23T10:39:35.801939Z\",\n    \"UpdatedAt\": \"2022-03-23T10:39:35.801939Z\",\n    \"DeletedAt\": null,\n    \"title\": \"title\",\n    \"detail\": \"detail\",\n    \"comments\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Post",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"{{title}}\",\n    \"detail\": \"{{detail}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/posts/{{post_id}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Post",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"{{$randomCatchPhrase}}\",\n    \"detail\": \"{{$randomCatchPhraseDescriptor}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/posts/{{post_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete Post",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/posts/{{post_id}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Post",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/posts/{{post_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get Comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/posts/{{post_id}}/comments",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}",
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Comments",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/posts/{{post_id}}/comments",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}",
+								"comments"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Create Comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Comment is created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"{{message}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/posts/{{post_id}}/comments",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}",
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Comments",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"{{message}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/posts/{{post_id}}/comments",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}",
+								"comments"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Mar 2022 00:52:41 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "135"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ID\": 2,\n    \"CreatedAt\": \"2022-03-24T00:52:41.125392009Z\",\n    \"UpdatedAt\": \"2022-03-24T00:52:41.125392009Z\",\n    \"DeletedAt\": null,\n    \"message\": \"message\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Find Comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Comment is exists\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/posts/{{post_id}}/comments/{{comment_id}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}",
+						"comments",
+						"{{comment_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Find Comment",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/posts/{{post_id}}/comments/{{comment_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}",
+								"comments",
+								"{{comment_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"ID\": 2,\n    \"CreatedAt\": \"2022-03-24T00:52:41.125392009Z\",\n    \"UpdatedAt\": \"2022-03-24T00:52:41.125392009Z\",\n    \"DeletedAt\": null,\n    \"message\": \"message\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Comment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"{{message}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/posts/{{post_id}}/comments/{{comment_id}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}",
+						"comments",
+						"{{comment_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Comment",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"{{message}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/posts/{{post_id}}/comments/{{comment_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}",
+								"comments",
+								"{{comment_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete Comment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/posts/{{post_id}}/comments/{{comment_id}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}",
+						"comments",
+						"{{comment_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Comment",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/posts/{{post_id}}/comments/{{comment_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}",
+								"comments",
+								"{{comment_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
